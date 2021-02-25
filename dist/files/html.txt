@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Markazi+Text:wght@700&display=swap" rel="stylesheet">
     <title>cards</title>
 </head>
 <body>
@@ -23,31 +25,44 @@
         <div id="blinds" class=""></div>
         
         <div class="container">
-            <div class="card">
-                <div class="img animation">
-                    <img src="./dist/img/html.png" alt="img1">
+            <div class="cards">
+                <div class="card">
+                    <div class="img animation">
+                        <img src="./dist/img/html.png" alt="img1">
+                    </div>
+                    <div class="desc">
+                        <h2>Title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit architecto repellendus iusto ut. Qui libero magni sit exercitationem aliquid deserunt totam porro, debitis voluptatem fugiat eos ea harum nemo.</p>
+                    </div>
                 </div>
-                <div class="desc">
-                    <h2>Title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit architecto repellendus iusto ut. Qui libero magni sit exercitationem aliquid deserunt totam porro, debitis voluptatem fugiat eos ea harum nemo.</p>
+                <div class="card">
+                    <div class="img animation">
+                        <img src="./dist/img/css3.png" alt="img3">
+                    </div>
+                    <div class="desc">
+                        <h2>Title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit architecto repellendus iusto ut. Qui libero magni sit exercitationem aliquid deserunt totam porro, debitis voluptatem fugiat eos ea harum nemo.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img animation">
+                        <img src="./dist/img/js.png" alt="img2">
+                    </div>
+                    <div class="desc">
+                        <h2>Title</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit architecto repellendus iusto ut. Qui libero magni sit exercitationem aliquid deserunt totam porro, debitis voluptatem fugiat eos ea harum nemo.</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="img animation">
-                    <img src="./dist/img/css3.png" alt="img3">
+            
+            <div class="links">
+                <div class="link">
+                    <i style="color:rgb(58, 110, 206)" class="fab fa-facebook"></i>
+                    <a href="https://www.facebook.com/profile.php?id=100002429666746" target="_blank" rel="noopener noreferrer">Facebook</a>
                 </div>
-                <div class="desc">
-                    <h2>Title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit architecto repellendus iusto ut. Qui libero magni sit exercitationem aliquid deserunt totam porro, debitis voluptatem fugiat eos ea harum nemo.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="img animation">
-                    <img src="./dist/img/js.png" alt="img2">
-                </div>
-                <div class="desc">
-                    <h2>Title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima suscipit architecto repellendus iusto ut. Qui libero magni sit exercitationem aliquid deserunt totam porro, debitis voluptatem fugiat eos ea harum nemo.</p>
+                <div class="link">
+                    <i style="color: rgb(26, 25, 25)" class="fab fa-github"></i>
+                    <a href="https://github.com/farghaly93/farghaly_winter" target="_blank" rel="noopener noreferrer">Github</a>
                 </div>
             </div>
         </div>
@@ -55,10 +70,12 @@
         <div id="modal" class="">
             <div class="content"></div>
             <div class="btns">
+                <button id="copy">Copy</button>
                 <button id="close">Close</button>
             </div>
         </div>
     </div>
     <script src="./dist/index.js"></script>
+    <script src="https://kit.fontawesome.com/10c45ea049.js" crossorigin="anonymous"></script>
 </body>
 </html>

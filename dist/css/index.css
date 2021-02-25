@@ -28,30 +28,36 @@
   }
   body .content .cards .card {
     margin: 0 auto;
-    width: 200px;
+    width: 80%;
     height: 200px;
-    margin: 1.5rem;
+    margin-bottom: 2.7rem;
   }
   body .content .cards .card .img {
-    width: 170px;
+    width: 50%;
     height: 170px;
-    left: 15px;
+    left: 25%;
+  }
+  body .content .cards .card .desc {
+    background: transparent;
   }
   body .content .cards .card:hover .img {
-    width: 120px;
-    height: 120px;
-    left: 40px;
+    width: 30%;
+    height: 100px;
+    left: 35%;
   }
   body .content .cards .card:hover .desc {
-    transform: translateY(60%);
-    font-size: 11px;
+    transform: translateY(50%);
+    font-size: 13px;
     color: #000;
   }
   body .content .cards .card:hover .desc h2 {
-    font-size: 17px;
+    font-size: 20px;
+  }
+  body .content .links .link {
+    font-size: 1.4rem;
   }
   body .content #modal .content {
-    font-size: .7rem;
+    font-size: .8rem;
   }
   body .content #modal .btns button {
     font-size: .8rem;
@@ -739,8 +745,9 @@ body.lighten {
   position: absolute;
   bottom: 0;
   padding: .3rem;
+  width: 100%;
   height: 300px;
-  overflow: hidden;
+  overflow-y: auto;
   opacity: 0;
   color: #413f3f;
   transition: all .5s ease-in-out;
@@ -778,7 +785,7 @@ body.lighten {
 }
 
 .links .link {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .links .link a {
@@ -792,10 +799,11 @@ body.lighten {
   left: 20px;
   width: 17px;
   height: 200px;
-  background: #726d6d;
+  background: #414249;
   transition: all .2s ease-in-out;
   border-bottom-left-radius: 22px;
   border-bottom-right-radius: 22px;
+  border: 2px solid #000;
   cursor: pointer;
 }
 
@@ -803,7 +811,7 @@ body.lighten {
   content: "";
   position: absolute;
   top: 200px;
-  left: -1.5px;
+  left: -3px;
   width: 20px;
   height: 50px;
   background: #1e1f1e;
@@ -812,6 +820,7 @@ body.lighten {
   border-top-right-radius: 30px;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  border: 2px solid #aaa2a2;
 }
 
 #blinds_rope:active {
@@ -844,18 +853,6 @@ body.lighten {
   left: 0;
   border: 3px solid rgba(165, 192, 196, 0.618);
   border-radius: 50%;
-}
-
-.waves .drop_waves .wave:nth-child(1) {
-  animation: drop_waves 1s infinite linear;
-}
-
-.waves .drop_waves .wave:nth-child(2) {
-  animation: drop_waves 2s infinite linear;
-}
-
-.waves .drop_waves .wave:nth-child(3) {
-  animation: drop_waves 3s infinite linear;
 }
 
 #modal {
