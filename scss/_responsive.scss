@@ -67,6 +67,13 @@
                 }
             }
 
+            .waves {
+                bottom: 17%;
+                .drop_waves {
+                    height: 30px;
+                    width: 30px;
+                }
+            }
             #modal {
                 .content {
                     font-size: .8rem;

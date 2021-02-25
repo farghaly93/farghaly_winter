@@ -349,8 +349,9 @@ body {
 
     .drop_waves {
         position: relative;
-        height: 20px;
+        height: 50px;
         width: 50px;
+        transform: rotateX(75deg);
 
         .wave {
             position: absolute;

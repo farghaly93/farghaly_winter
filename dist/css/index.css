@@ -62,6 +62,13 @@
   body .content .heading h1 {
     width: 280px;
   }
+  body .content .waves {
+    bottom: 17%;
+  }
+  body .content .waves .drop_waves {
+    height: 30px;
+    width: 30px;
+  }
   body .content #modal .content {
     font-size: .8rem;
   }
@@ -849,8 +856,9 @@ body.lighten {
 
 .waves .drop_waves {
   position: relative;
-  height: 20px;
+  height: 50px;
   width: 50px;
+  transform: rotateX(75deg);
 }
 
 .waves .drop_waves .wave {
