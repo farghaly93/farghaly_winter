@@ -6,14 +6,15 @@ const modal = document.querySelector("#modal");
 let showModal = false;
 
 for(var i=0; i<50; i++) {
+    console.log(i);
     const drop1 = document.createElement("div");
     const drop2 = document.createElement("div");
 
     drop1.setAttribute("class", "water_drop");
     drop2.setAttribute("class", "glass_drop");
 
-    drop1.innerHTML = "<img src='./dist/img/water_drop.png' alt='"+i+1+"'/>"
-    drop2.innerHTML = "<img src='./dist/img/glass_drop.png' alt='"+i+1+"'/>"
+    drop1.innerHTML = "<img src='./dist/img/water_drop.png' alt='"+(i+1)+"'/>"
+    drop2.innerHTML = "<img src='./dist/img/glass_drop.png' alt='"+(i+1)+"'/>"
 
     rain.appendChild(drop1);
     glass_drops.appendChild(drop2);
