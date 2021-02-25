@@ -846,6 +846,18 @@ body.lighten {
   border-radius: 50%;
 }
 
+.waves .drop_waves .wave:nth-child(1) {
+  animation: drop_waves 1s infinite linear;
+}
+
+.waves .drop_waves .wave:nth-child(2) {
+  animation: drop_waves 2s infinite linear;
+}
+
+.waves .drop_waves .wave:nth-child(3) {
+  animation: drop_waves 3s infinite linear;
+}
+
 #modal {
   position: absolute;
   left: 50%;
@@ -929,5 +941,101 @@ body.lighten {
 
 #modal .btns button:active {
   background: #20552b;
+}
+
+@keyframes wind_heading {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rain_drop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes paper_fly {
+  0% {
+    transform: rotate(0deg);
+    transform: translateX(0);
+  }
+  50% {
+    transform: rotate(90deg);
+    transform: translate(50vw, 45vh);
+  }
+  100% {
+    transform: rotate(0deg);
+    transform: translate(100vw, 55vh);
+  }
+}
+
+@keyframes tree_shake {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes drop_waves {
+  0% {
+    height: 0%;
+    width: 0%;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+  }
+  50% {
+    height: 50%;
+    width: 50%;
+    opacity: .8;
+    top: 25%;
+    left: 25%;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+}
+
+@keyframes rope_swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(0.5deg);
+  }
+  75% {
+    transform: rotate(-0.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 /*# sourceMappingURL=index.css.map */
