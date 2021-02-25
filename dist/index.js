@@ -147,7 +147,7 @@ window.addEventListener('load', function () {
 // window.onload = () => {
     // var audio = new Audio('./dist/mp3/rain.mp3');   
     // audio.play();
-    document.getElementById("play").click();
+    // document.getElementById("play").click();
 // }
 
 
