@@ -361,7 +361,7 @@ body {
         }
         @for $i from 1 through 3 {
             .wave:nth-child(#{$i}) {
-                // animation: drop_waves ($i * 1s) infinite linear;
+                animation: drop_waves ($i * 1s) infinite linear;
             }
         } 
     }

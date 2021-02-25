@@ -14,7 +14,7 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     body {
         .content {
             .cards {
@@ -55,6 +55,15 @@
             .links {
                 .link {
                     font-size: 1.4rem;
+                }
+            }
+
+            .heading {
+                .board {
+                    width: 200px;
+                }
+                h1 {
+                    width: 280px;
                 }
             }
 

@@ -22,7 +22,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   body .content .cards {
     flex-direction: row;
   }
@@ -55,6 +55,12 @@
   }
   body .content .links .link {
     font-size: 1.4rem;
+  }
+  body .content .heading .board {
+    width: 200px;
+  }
+  body .content .heading h1 {
+    width: 280px;
   }
   body .content #modal .content {
     font-size: .8rem;
@@ -853,6 +859,18 @@ body.lighten {
   left: 0;
   border: 3px solid rgba(165, 192, 196, 0.618);
   border-radius: 50%;
+}
+
+.waves .drop_waves .wave:nth-child(1) {
+  animation: drop_waves 1s infinite linear;
+}
+
+.waves .drop_waves .wave:nth-child(2) {
+  animation: drop_waves 2s infinite linear;
+}
+
+.waves .drop_waves .wave:nth-child(3) {
+  animation: drop_waves 3s infinite linear;
 }
 
 #modal {
