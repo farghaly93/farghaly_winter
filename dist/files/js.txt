@@ -1,0 +1,149 @@
+const imageEnvelope = document.querySelectorAll(".img");
+const rain = document.getElementById("rain");
+const glass_drops = document.getElementById("glass_drops");
+const papers = document.getElementById("papers");
+const modal = document.querySelector("#modal");
+let showModal = false;
+// imageEnvelope.forEach( img => {
+//     console.log(img);
+//     img.addEventListener("mouseover", () => {
+//         img.classList.remove("animation");
+//     });
+//     img.addEventListener("mouseleave", () => {
+//         img.classList.add("animation");
+//     });
+// });
+
+for(var i=0; i<50; i++) {
+    const drop1 = document.createElement("div");
+    const drop2 = document.createElement("div");
+
+    drop1.setAttribute("class", "water_drop");
+    drop2.setAttribute("class", "glass_drop");
+
+    drop1.innerHTML = "<img src='./dist/img/water_drop.png' alt='"+i+1+"'/>"
+    drop2.innerHTML = "<img src='./dist/img/glass_drop.png' alt='"+i+1+"'/>"
+
+    rain.appendChild(drop1);
+    glass_drops.appendChild(drop2);
+}
+
+for(var i=0; i<7; i++) {
+    const paper = document.createElement("div");
+    paper.setAttribute("class", "paper");
+    paper.innerHTML = "<img src='./dist/img/paper.png' alt='"+i+1+"'/>"
+
+    papers.appendChild(paper);
+}
+
+setInterval(() => {
+    document.querySelector("body").classList.add("lighten");
+    setTimeout(() => {
+        document.querySelector("body").classList.remove("lighten")
+    }, 50);
+}, 5000);
+
+
+let innerHTML = "";
+for(var i=0; i< 20; i++) {
+    let waveDrop = '<div class="drop_waves">';
+    waveDrop += '<div class="wave"></div>';
+    waveDrop += '<div class="wave"></div>';
+    waveDrop += '<div class="wave"></div>';
+    waveDrop += '</div>';
+
+    innerHTML += waveDrop;
+}
+document.querySelector(".waves").innerHTML = innerHTML;
+const waves = document.querySelector(".waves");
+const dropWaves = waves.querySelectorAll(".drop_waves");
+
+dropWaves.forEach(dW => {
+    const rand = (Math.random() * 90) + 0;
+    dW.style.bottom = rand + "px"; 
+});
+
+
+
+document.getElementById("blinds_rope").addEventListener("click", () => {
+    document.getElementById("blinds").classList.toggle("opened");
+    document.querySelector(".container").classList.toggle("closed");
+});
+
+
+setInterval(() => {
+    document.querySelector(".content").classList.toggle("dark");
+}, 10000);
+
+window.onload = () => {
+    // var audio = new Audio("./dist/mp3/rain.mp3");
+    // audio.play();
+    // audio.loop();
+    // audio.volume()
+}
+document.querySelectorAll(".card").forEach((card, o) => {
+    card.addEventListener("click", async() => await loadModal(o));
+    o++;
+});
+
+document.getElementById("close").addEventListener("click", closeModal);
+
+async function loadModal(file_order) {
+    modal.classList.add("show");
+    await readAndShowFile(file_order);
+}
+
+function closeModal() {
+    modal.classList.remove("show");
+}
+
+async function readAndShowFile (file_order) {
+    console.log(file_order);
+    modal.querySelector(".content").innerText =  "";
+    let file = "";
+    if(file_order === 1) file ="./dist/files/html.txt";
+    if(file_order === 2) file ="./dist/files/scss.txt";
+    if(file_order === 3) file ="./dist/files/js.txt";
+
+    const http = new XMLHttpRequest();
+    http.open("get", file, true);
+    http.onload = () => {
+        if(http.readyState === 4) {
+            if(http.status === 200) {
+                modal.querySelector(".content").innerText = http.responseText;
+            } else {
+                modal.querySelector(".content").innerHTML = "<h2>Not found</h2>";
+            }
+        }
+        http.onerror = () => {
+            //modal.querySelector(".content").innerHTML = http.statusText;
+        }
+    }
+    http.send();
+    
+}
+
+
+
+
+
+
+// function readAndShowFileAsync(file) {
+//     return new Promise((resolve, reject) => {
+//         const http = new XMLHttpRequest();
+//         http.open("get", file, false);
+//         http.onload = () => {
+//             if(http.readyState === 4) {
+//                 if(http.status === 200) {
+//                     resolve(http.responseText);
+//                 } else {
+//                     reject(http.statusText);
+//                 }
+//             }
+//             http.onerror = () => {
+//                 reject(http.statusText);
+//             }
+//         }
+//         http.send();
+//     });
+// }

@@ -1,0 +1,18 @@
+::-webkit-scrollbar {
+    width: 1.1rem;
+   }
+  
+  ::-webkit-scrollbar-track {
+    border: 7px solid #cdd0db;
+    // box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #2d3b5cc5, #5c6e81be);
+    border-radius: 1rem;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(270deg, #3d528d, #cbd6e2, #435179);
+  }

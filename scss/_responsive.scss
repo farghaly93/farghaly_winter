@@ -1,0 +1,64 @@
+
+@media screen and (min-width: 800px) {
+    #blinds_rope {
+        // display: none;
+    }
+    body {
+        .content {
+            .cards {
+                &.closed {
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        .content {
+            .cards {
+                flex-direction: row;
+                
+                .card {
+                    margin: 0 auto;
+                    width: 200px;
+                    height: 200px;
+                    margin: 1.5rem;
+
+                    .img {
+                        width: 170px;
+                        height: 170px;
+                        left: 15px;
+                    }
+                    &:hover {
+                        .img {  
+                            width: 120px;
+                            height: 120px;
+                            left: 40px;
+                        }
+                        .desc {
+                            h2 {
+                                font-size: 17px;
+                            }
+                            transform: translateY(60%);
+                            font-size: 11px;
+                            color: #000;
+                        }
+                    }
+                }
+            }
+            #modal {
+                .content {
+                    font-size: .7rem;
+                }
+                .btns {
+                    button {
+                        font-size: .8rem;
+                        padding: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}

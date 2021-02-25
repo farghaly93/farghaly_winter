@@ -1,0 +1,489 @@
+@import "animations";
+@import "responsive";
+@import "scrollbar";
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+body {
+    background:
+    // linear-gradient(rgba(33, 177, 230, 0.342), rgba(72, 148, 57, 0.267)),
+    url("../img/cover.jpg") top center;
+    background-size: cover;
+    &.lighten {
+        background: linear-gradient(rgb(243, 244, 245), rgba(240, 240, 241, 0.644));
+    }
+}
+
+.content {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    // background: rgba(211, 206, 206, 0.13);
+    transition: all 3s linear;
+
+    &.dark {
+        background: rgba(0, 0, 0, 0.748);
+    }
+}
+#rain {
+    position: absolute;
+    // transform: translateY(-100%);
+    top: 10%;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-shrink: 0;
+    .water_drop {
+        width: 20px;
+        height:20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @for $i from 1 through 50 {
+        .water_drop:nth-child(#{$i}) {
+            animation: rain_drop ($i * .01s) + .01s infinite linear;
+        }
+    }
+}
+
+#papers {
+    // z-index: -3;
+    position: absolute;
+    top: 0;
+    left: -10%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .paper {
+        // width: 20px;
+        // height: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @for $i from 1 through 7 {
+        .paper:nth-child(#{$i}) {
+            animation: paper_fly ($i * 1) + .01s infinite linear;
+            width: ($i * 10px) + 10px;
+            height: ($i * 10px) + 10px ;
+        }
+    }
+}
+
+.heading {
+    // z-index: -2;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    .board {
+        margin: 0 auto;
+        background: transparent;
+        height: 150px;
+        width: 300px;
+        border-left: 5px solid #000;
+        border-right: 5px solid #000;
+        animation: wind_heading 2s infinite linear;
+    }
+    h1 {
+        margin: 0 auto;
+        text-align: center;
+        width: 400px;
+        font-size: 2rem;
+        color: rgb(209, 16, 16);
+        background: white;
+        padding: 10px 20px;
+        animation: wind_heading 2s infinite linear;
+        border: 3px solid rgb(134, 98, 35);
+    }
+}
+
+.tree {
+    // z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+
+    img {
+        width: 100%;
+        height: 100%;
+        opacity: .7;
+    }
+
+    animation: tree_shake .8s infinite linear;
+}
+
+#glass_drops {
+    z-index: 0;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: 
+        url("../img/rain_screen.png"),
+        linear-gradient(to bottom, rgba(59, 78, 85, 0.623), rgba(59, 78, 85, 0.678));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .glass_drop {
+        transform: translateY(-100vh);
+        width: 30px;
+        height:30px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @for $i from 1 through 50 {
+        .glass_drop:nth-child(#{$i}) {
+            animation: rain_drop ($i * 3) + .01s infinite linear;
+        }
+    }
+}
+
+#blinds {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("https://c1.wallpaperflare.com/preview/891/588/915/blinds-dark-shadow-window-blind.jpg") center center;
+    background-size: cover;
+    opacity: .5;
+    transition: all 3s ease-in-out;
+    &.opened {
+        height: 0vh;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+
+.cards {
+    padding-top: 20%;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    border-radius: 15px;
+    transition: all 3.6s ease-in-out;
+    overflow-y: auto;
+    
+    &.closed {
+        transform: translateY(-170vh);
+        .links {
+            transform: translateY(-170vh); 
+        }
+    }
+
+    .card {
+        position: relative;
+        flex-basis: 1;
+        margin: 1rem auto;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.664);
+        border: 3px solid #444;
+        box-shadow: #444;
+        cursor: pointer;
+
+        .img {
+            position: absolute;
+            top: -3%;
+            left: 25px;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            margin: 0 auto;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            transition: all .5s ease-in-out;
+        }
+
+        .desc {
+            position: absolute;
+            bottom: 0;
+            padding: .3rem;
+            height: 300px;
+            overflow: hidden;
+            opacity: 0;
+            color: rgb(65, 63, 63);
+            transition: all .5s ease-in-out;
+        }
+        &:hover {
+            .img {
+                // top: -37%;
+                top: -20%;
+                left: 65px;
+                transform: rotate(720deg);
+                // border-radius: 50%;
+                height: 170px;
+                width: 170px;
+            }
+            .desc {
+                opacity: 1;
+                transform: translateY(40%);
+            }
+        }
+    }
+}
+
+.links {
+    z-index: 0;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background: rgba(68, 68, 68, 0.637);
+    transition: all 4s ease-in-out;
+    &.closed {
+        transform: translateY(-180vh);
+    }
+    .link {
+        font-size: 2rem;
+        a {
+            color: rgb(241, 242, 247);
+            text-decoration: none;
+        }
+    }
+}
+
+#blinds_rope {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 17px;
+    height: 200px;
+    background: rgb(114, 109, 109);
+    transition: all .2s ease-in-out;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+    // border: 3px solid #000;
+    cursor: pointer;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 200px;
+        left: -1.5px;
+        width: 20px;
+        height: 50px;
+        background: rgb(30, 31, 30);
+        transition: all .2s ease-in-out;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+        // border: 3px solid rgb(170, 162, 162);
+    }
+    &:active {
+        height: 250px;
+        &::after {
+            top: 250px;
+        }
+    }
+}
+
+.waves {
+    position: absolute;
+    bottom: 5%;
+    left: 1%;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .drop_waves {
+        position: relative;
+        height: 20px;
+        width: 50px;
+
+        .wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 3px solid rgba(165, 192, 196, 0.618);
+            border-radius: 50%;
+        }
+        @for $i from 1 through 3 {
+            .wave:nth-child(#{$i}) {
+                // animation: drop_waves ($i * 1s) infinite linear;
+            }
+        } 
+    }
+}
+
+#modal {
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    height: 0%;
+    width: 0%;
+    background: rgba(233, 229, 229, 0.925);
+    transition: all .3s ease-in-out;
+
+    &.show {
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+    }
+
+    &.coppied {
+        transition: all 1s ease-in-out;
+        &::after {
+            content: "Coppied";
+            height: 10%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            font-size: 30px;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            background:rgba(20, 20, 80, 0.685);
+        }
+    }
+
+    .content {
+        height: 90%;
+        width: 100%;
+        color: rgb(63, 64, 65);
+        font-size: 1.2rem;
+        overflow-y: auto;
+        overflow-x: auto;
+        padding: 2rem;
+        font-weight: 700;
+        font-family: 'Graduate', cursive;
+        background: rgba(220, 212, 212, 0.815);
+    }
+    .btns {
+        height: 10%;
+        border: 13px solid transparent;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            cursor: pointer;
+            border-radius: 10px;
+            padding: .5rem 2rem;
+            color: aliceblue;
+            font-size: 1.5rem;
+
+            &:nth-child(1) {
+                background: rgb(36, 36, 90);
+                border: 2px solid rgb(20, 20, 80);
+            }
+            &:nth-child(2) {
+                background: rgb(139, 46, 58);
+                border: 2px solid rgb(90, 36, 57);
+            }
+            &:hover {
+                padding: .6rem 2.4rem;
+            }
+            &:active {
+                background: rgb(32, 85, 43);
+            }
+        }
+    }
+    
+}
+
+
+
+// @keyframes wind_heading {
+//     0% {transform: rotate(0deg)}
+//     25% {transform: rotate(5deg)}
+//     50% {transform: rotate(3deg)}
+//     60% {transform: rotate(0deg)}
+//     75% {transform: rotate(-2deg)}
+//     100% {transform: rotate(0deg)}
+// }
+
+// @keyframes rain_drop {
+//     0% {transform: translateY(0)}
+//     100% {transform: translateY(100vh)}
+// }
+
+// @keyframes paper_fly {
+//     0% {
+//         transform: rotate(0deg);
+//         transform: translateX(0);
+//     }
+//     50% {
+//         transform: rotate(90deg);
+//         transform: translate(50vw, 45vh);
+//     }
+//     100% {
+//         transform: rotate(0deg);
+//         transform: translate(100vw, 55vh);
+//     }
+// }
+
+// @keyframes tree_shake {
+//     0% {transform: translateY(0px);}
+//     // 25% {transform: rotate(-1deg);}
+//     50% {transform: translateY(10px);}
+//     // 75% {transform: rotate(1deg);}
+//     100% {transform: translateY(0px);}
+// }
+
+// @keyframes drop_waves {
+//     0% {height: 0%; width: 0%; opacity: 0; top: 50%; left: 50%;}
+//     50% {height: 50%; width: 50%; opacity: .8; top: 25%; left: 25%}
+//     100% {height: 100%; width: 100%; opacity: 0; top: 0; left: 0}
+// }
+
+// @keyframes rope_swing {
+//     0% {transform: rotate(0deg);}
+//     50% {transform: rotate(.5deg);}
+//     75% {transform: rotate(-.5deg);}
+//     100% {transform: rotate(0deg);}
+// }
